@@ -2,7 +2,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using monitorIntegration.Models;
-using Newtonsoft.Json;
 
 namespace monitorIntegration.Controllers
 {
