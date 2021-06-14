@@ -1,0 +1,5 @@
+{
+    "appService.preDeployTask": "publish-release",
+    "appService.deploySubpath": "bin\\Release\\net5.0\\publish",
+    "appService.defaultWebAppToDeploy": "/subscriptions/06d8077a-cf06-41cc-9d97-895a2800ff10/resourceGroups/DefaultResourceGroup-CUS/providers/Microsoft.Web/sites/krintegration"
+}
