@@ -58,7 +58,7 @@ namespace monitorIntegration.Controllers
 
         public static async void SfTestLogin(monitorInformationItem data)
         {
-            Credential credential = new Credential(TestUserName, TestPassword, GrantType, ClientID, ClientSecret);
+            Credential credential = new Credential(TestUserName, TestPassword, GrantType, TestClientID, TestClientSecret);
 
             var client = new RestClient(TestUrlLogin);
             var request = new RestRequest("");
