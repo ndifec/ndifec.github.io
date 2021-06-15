@@ -26,11 +26,11 @@ namespace monitorIntegration.Controllers
         const string TestUrlLogin = "https://test.salesforce.com/services/oauth2/token";
         const string TestURLCall = "https://kindlyreminders--ndifechang.my.salesforce.com/services/apexrest/MonitorIntegration";
         const string URLCall = "https://kindlyreminders.my.salesforce.com/services/apexrest/MonitorIntegration";
-        const string TestClientID = "";
+        const string TestClientID = "3MVG98dostKihXN4UHAFu5o1Pf9QUd7D7MMKIaHEbwWa.v3HS6s9q8PsAmh1EPaNwViR6kwfha4fibHhgDqQB";
         const string ClientID = "";
-        const string TestClientSecret = "";
+        const string TestClientSecret = "EA234228B9713E4F110D50AAE1A416C1E86B0BB2866CCA97C573E84F72D59152";
         const string ClientSecret = "";
-        const string GrantType = "";
+        const string GrantType = "password";
 
         public monitorIntegrationItemsController(monitorIntegrationContext context)
         {
