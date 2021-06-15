@@ -1,7 +1,14 @@
+using System.Collections.Generic;
 using System.Linq;
+using System.Net;
+using System.Net.Http;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using monitorIntegration.Models;
+using Newtonsoft.Json;
+using KRIntegration.Models;
+using RestSharp;
+using RestSharp.Serialization.Json;
 
 namespace monitorIntegration.Controllers
 {
@@ -10,6 +17,20 @@ namespace monitorIntegration.Controllers
     public class monitorIntegrationItemsController : ControllerBase
     {
         private readonly monitorIntegrationContext _context;
+
+        const string UserName = "";
+        const string TestUserName = "chris@kindlyreminders.com.ndifechang";
+        const string Password = "";
+        const string TestPassword = "Integration1!";
+        const string UrlLogin = "";
+        const string TestUrlLogin = "https://test.salesforce.com/services/oauth2/token";
+        const string TestURLCall = "https://kindlyreminders--ndifechang.my.salesforce.com/services/apexrest/MonitorIntegration";
+        const string URLCall = "https://kindlyreminders.my.salesforce.com/services/apexrest/MonitorIntegration";
+        const string TestClientID = "";
+        const string ClientID = "";
+        const string TestClientSecret = "";
+        const string ClientSecret = "";
+        const string GrantType = "";
 
         public monitorIntegrationItemsController(monitorIntegrationContext context)
         {
@@ -25,7 +46,37 @@ namespace monitorIntegration.Controllers
             _context.Items.Add(data);
             await _context.SaveChangesAsync();
 
-            return Ok(data);
+            var client = new HttpClient();
+            string jsonString = JsonConvert.SerializeObject(data);
+            var stringcontent = new StringContent(jsonString);
+
+            SfTestLogin(data);
+            //SfLogin(data);
+
+            return Ok(stringcontent);
+        }
+
+        public static async void SfTestLogin(monitorInformationItem data)
+        {
+            Credential credential = new Credential(TestUserName, TestPassword, TestClientID, TestClientSecret, GrantType);
+
+            var client = new RestClient(TestUrlLogin);
+            var request = new RestRequest("");
+
+            request.AddHeader("Content-Type", "application/json");
+
+            request.AddJsonBody(credential);
+            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
+            var response = client.Post(request);
+            var content = response.Content;
+            response.ContentType = "application/json";
+
+            Token token = new JsonDeserializer().Deserialize<Token>(response);
+
+            HttpClient sfCall = new HttpClient();
+            sfCall.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token.access_token);
+            var sfCallResponse = await sfCall.PostAsync(TestURLCall, new StringContent(JsonConvert.SerializeObject(data)));
+           
         }
 
         private bool monitorInformationItemExists(long id)
