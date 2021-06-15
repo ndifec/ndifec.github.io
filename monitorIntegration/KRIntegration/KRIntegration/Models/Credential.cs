@@ -9,17 +9,17 @@ namespace KRIntegration.Models
     {
         public string username { get; set; }
         public string password { get; set; }
-        public string grantType { get; set; }
-        public string clientID { get; set; }
-        public string clientSecret { get; set; }
+        public string grant_type { get; set; }
+        public string client_id { get; set; }
+        public string client_secret { get; set; }
 
         public Credential(string username, string password, string grantType, string clientID, string clientSecret)
         {
             this.username = username;
             this.password = password;
-            this.grantType = grantType;
-            this.clientID = clientID;
-            this.clientSecret = clientSecret;
+            this.grant_type = grantType;
+            this.client_id = clientID;
+            this.client_secret = clientSecret;
         }
     }
 
