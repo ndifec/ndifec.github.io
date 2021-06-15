@@ -38,6 +38,9 @@ namespace monitorIntegration.Models
         [JsonProperty("systolic_mmhg")]
         public int systolic_mmhg {get; set;}
 
+        [JsonProperty("diastolic_mmhg")]
+        public int diastolic_mmhg { get; set; }
+
         [JsonProperty("battery")]
         public int battery {get; set;}
 

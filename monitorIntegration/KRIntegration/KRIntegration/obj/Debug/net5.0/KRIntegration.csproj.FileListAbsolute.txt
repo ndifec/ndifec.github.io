@@ -44,3 +44,5 @@ E:\KR Rep\KindlyReminders\monitorIntegration\KRIntegration\KRIntegration\obj\Deb
 E:\KR Rep\KindlyReminders\monitorIntegration\KRIntegration\KRIntegration\obj\Debug\net5.0\ref\KRIntegration.dll
 E:\KR Rep\KindlyReminders\monitorIntegration\KRIntegration\KRIntegration\obj\Debug\net5.0\KRIntegration.pdb
 E:\KR Rep\KindlyReminders\monitorIntegration\KRIntegration\KRIntegration\obj\Debug\net5.0\KRIntegration.genruntimeconfig.cache
+E:\KR Rep\KindlyReminders\monitorIntegration\KRIntegration\KRIntegration\bin\Debug\net5.0\RestSharp.dll
+E:\KR Rep\KindlyReminders\monitorIntegration\KRIntegration\KRIntegration\obj\Debug\net5.0\KRIntegration.csproj.AssemblyReference.cache
