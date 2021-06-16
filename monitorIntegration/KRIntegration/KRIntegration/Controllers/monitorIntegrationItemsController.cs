@@ -51,7 +51,7 @@ namespace monitorIntegration.Controllers
             var stringcontent = new StringContent(jsonString);
 
             SfTestLogin(data);
-            //SfLogin(data);
+            SfLogin(data);
 
             return Ok();
         }
@@ -76,7 +76,7 @@ namespace monitorIntegration.Controllers
             Token token = new JsonDeserializer().Deserialize<Token>(response);
 
             SfTestCall(token, data);
-            SfCall(token, data);
+         
 
         }
 
@@ -99,7 +99,7 @@ namespace monitorIntegration.Controllers
             var content = response.Content;
             Token token = new JsonDeserializer().Deserialize<Token>(response);
 
-            SfTestCall(token, data);
+            SfCall(token, data);
 
         }
 
