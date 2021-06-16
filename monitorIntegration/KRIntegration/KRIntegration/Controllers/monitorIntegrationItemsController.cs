@@ -53,7 +53,7 @@ namespace monitorIntegration.Controllers
             SfTestLogin(data);
             //SfLogin(data);
 
-            return Ok(data);
+            return Ok();
         }
 
         public static void SfTestLogin(monitorInformationItem data)
