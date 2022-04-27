@@ -20,8 +20,8 @@ namespace monitorIntegration.Controllers
 
         const string UserName = "chris@kindlyreminders.com";
         const string TestUserName = "chris@kindlyreminders.com.ndifechang";
-        const string Password = "Integration2!";
-        const string TestPassword = "Integration2!";
+        const string Password = "Integration3!";
+        const string TestPassword = "Integration3!";
         const string UrlLogin = "https://login.salesforce.com/services/oauth2/token";
         const string TestUrlLogin = "https://test.salesforce.com/services/oauth2/token";
         const string TestURLCall = "https://kindlyreminders--ndifechang.my.salesforce.com/services/apexrest/MonitorIntegration";
