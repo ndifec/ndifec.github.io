@@ -23,6 +23,9 @@ namespace monitorIntegration.Models
         [JsonProperty("blood_glucose_mgdl")]
         public Double blood_glucose_mgdl {get; set;}
 
+        [JsonProperty("blood_glucose_mmol")]
+        public Double blood_glucose_mmol {get; set;}
+
         [JsonProperty("before_meal")]
         public bool before_meal {get; set;}
 
@@ -46,6 +49,18 @@ namespace monitorIntegration.Models
 
         [JsonProperty("time_zone_offset")]
         public Double time_zone_offset {get; set;}
+
+        [JsonProperty("tare_kg")]
+        public Double tare_kg {get; set;}
+
+        [JsonProperty("weight_kg")]
+        public Double weight_kg {get; set;}
+
+        [JsonProperty("tare_lbs")]
+        public Double tare_lbs {get; set;}
+
+        [JsonProperty("weight_lbs")]
+        public Double weight_lbs {get; set;}
 
         [JsonProperty("reading_type")]
         public string reading_type {get; set;}
