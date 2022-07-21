@@ -20,17 +20,8 @@ namespace monitorIntegration.Models
         [JsonProperty("date_received")]
         public DateTime date_received {get; set;}
 
-        [JsonProperty("blood_glucose_mgdl")]
-        public Double blood_glucose_mgdl {get; set;}
-
-        [JsonProperty("before_meal")]
-        public bool before_meal {get; set;}
-
         [JsonProperty("pulse_bpm")]
         public int pulse_bpm {get; set;}
-
-        [JsonProperty("Rate")]
-        public int Rate {get; set;}
 
         [JsonProperty("date_recorded")]
         public DateTime date_recorded {get; set;}
@@ -38,8 +29,8 @@ namespace monitorIntegration.Models
         [JsonProperty("systolic_mmhg")]
         public int systolic_mmhg {get; set;}
 
-        [JsonProperty("battery")]
-        public int battery {get; set;}
+        [JsonProperty("diastolic_mmhg")]
+        public int diastolic_mmhg { get; set; }
 
         [JsonProperty("time_zone_offset")]
         public Double time_zone_offset {get; set;}
@@ -47,14 +38,11 @@ namespace monitorIntegration.Models
         [JsonProperty("reading_type")]
         public string reading_type {get; set;}
 
-        [JsonProperty("event_flag")]
-        public string event_flag {get; set;}
-
-        [JsonProperty("Weight")]
-        public int Weight {get; set;}
-
         [JsonProperty("device_id")]
         public string device_id {get; set;}
+
+        [JsonProperty("short_code")]
+        public string short_code { get; set; }
 
     }
 }
