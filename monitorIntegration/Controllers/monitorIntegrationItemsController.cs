@@ -45,7 +45,6 @@ namespace monitorIntegration.Controllers
             _context.Items.Add(data);
             await _context.SaveChangesAsync();
 
-            var client = new HttpClient();
             string jsonString = JsonConvert.SerializeObject(data);
             var stringcontent = new StringContent(jsonString);
 
@@ -55,11 +54,12 @@ namespace monitorIntegration.Controllers
             return Ok();
         }
 
-        public static void SfTestLogin(monitorInformationItem data)
+        public static async void SfTestLogin(monitorInformationItem data)
         {
-            
+            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12 | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls;
+
             var client = new RestClient(TestUrlLogin);
-            var request = new RestRequest(Method.Post.ToString());
+            var request = new RestRequest();
             request.AddHeader("Content-Type", "application/x-www-form-urlencoded");
             request.AddHeader("Cookie", "BrowserId=QF7VcsCcEeuj8MXGuN1_ug");
             request.AddParameter("username", TestUserName);
@@ -68,26 +68,21 @@ namespace monitorIntegration.Controllers
             request.AddParameter("client_id", TestClientID);
             request.AddParameter("client_secret", TestClientSecret);
 
-            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12 | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls;
 
-            RestResponse response = client.Post(request);
-            var result = JsonConvert.DeserializeObject<dynamic>(response.Content);
-            Token token = null;
-            foreach (var item in result)
-            {
-                token = item["access_token"];
-            }
+            Token token = await client.PostAsync<Token>(request);
+
 
             SfTestCall(token, data);
          
 
         }
 
-        public static void SfLogin(monitorInformationItem data)
+        public static async void SfLogin(monitorInformationItem data)
         {
+            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12 | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls;
 
             var client = new RestClient(UrlLogin);
-            var request = new RestRequest(Method.Post.ToString());
+            var request = new RestRequest();
             request.AddHeader("Content-Type", "application/x-www-form-urlencoded");
             request.AddHeader("Cookie", "BrowserId=QF7VcsCcEeuj8MXGuN1_ug");
             request.AddParameter("username", UserName);
@@ -96,15 +91,9 @@ namespace monitorIntegration.Controllers
             request.AddParameter("client_id", ClientID);
             request.AddParameter("client_secret", ClientSecret);
 
-            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12 | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls;
-            RestResponse response = client.Post(request);
-           var result = JsonConvert.DeserializeObject<dynamic>(response.Content);
+            
+            Token token = await client.PostAsync<Token>(request);
 
-            Token token = null;
-            foreach (var item in result)
-            {
-                token = item["access_token"];
-            }
 
             SfCall(token, data);
 
