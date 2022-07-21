@@ -6,6 +6,8 @@ namespace monitorIntegration.Models
     [JsonObject]
     public class monitorInformationItem
     {
+        public long id {get; set;}
+
         [JsonProperty("reading_id")]
         public long reading_id {get; set;}
 
@@ -30,6 +32,9 @@ namespace monitorIntegration.Models
         [JsonProperty("pulse_bpm")]
         public int pulse_bpm {get; set;}
 
+        [JsonProperty("Rate")]
+        public int Rate {get; set;}
+
         [JsonProperty("date_recorded")]
         public DateTime date_recorded {get; set;}
 
@@ -39,14 +44,29 @@ namespace monitorIntegration.Models
         [JsonProperty("diastolic_mmhg")]
         public int diastolic_mmhg { get; set; }
 
+        [JsonProperty("battery")]
+        public int battery {get; set;}
+
         [JsonProperty("time_zone_offset")]
         public Double time_zone_offset {get; set;}
+
+        [JsonProperty("tare_kg")]
+        public Double tare_kg {get; set;}
+
+        [JsonProperty("weight_kg")]
+        public Double weight_kg {get; set;}
+
+        [JsonProperty("tare_lbs")]
+        public Double tare_lbs {get; set;}
+
+        [JsonProperty("weight_lbs")]
+        public Double weight_lbs {get; set;}
 
         [JsonProperty("reading_type")]
         public string reading_type {get; set;}
 
-        [JsonProperty("short_code")]
-        public string short_code {get; set;}
+        [JsonProperty("event_flag")]
+        public string event_flag {get; set;}
 
         [JsonProperty("Weight")]
         public int Weight {get; set;}
