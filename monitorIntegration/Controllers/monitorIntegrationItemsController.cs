@@ -101,28 +101,34 @@ namespace monitorIntegration.Controllers
 
         public static void SfTestCall(Token token, monitorInformationItem data)
         {
+            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12 | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls;
+
             var client = new RestClient(TestURLCall);
-            var request = new RestRequest(Method.Post.ToString());
+            var request = new RestRequest();
+            request.Method = Method.Post;
+
             request.AddHeader("Authorization", "Bearer "+ token.access_token);
             request.AddHeader("Content-Type", "application/json");
+            request.AddJsonBody(data);
 
-            var body = JsonConvert.SerializeObject(data);
-            request.AddParameter("application/json", body, ParameterType.RequestBody);
-            var response = client.Execute(request);
-            Console.WriteLine(response.Content);
+            var response = client.ExecuteAsync(request).Result;
+            Console.WriteLine(response);
         }
 
         public static void SfCall(Token token, monitorInformationItem data)
         {
+            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12 | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls;
+
             var client = new RestClient(URLCall);
-            var request = new RestRequest(Method.Post.ToString());
+            var request = new RestRequest();
+            request.Method = Method.Post;
+
             request.AddHeader("Authorization", "Bearer " + token.access_token);
             request.AddHeader("Content-Type", "application/json");
+            request.AddJsonBody(data);
 
-            var body = JsonConvert.SerializeObject(data);
-            request.AddParameter("application/json", body, ParameterType.RequestBody);
-            var response = client.Execute(request);
-            Console.WriteLine(response.Content);
+            var response = client.ExecuteAsync(request).Result;
+            Console.WriteLine(response);
         }
 
         private bool monitorInformationItemExists(long id)
